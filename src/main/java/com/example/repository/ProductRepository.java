@@ -1,7 +1,8 @@
-package com.example.repository.repository.repository;
+package com.example.repository;
 
-import com.example.repository.repository.model.Product;
+import com.example.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  */
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, String> {
+public interface ProductRepository extends CrudRepository<Product, Long> {
 
     Product findByType(String type);
     List<Product> findByDescriptionAndCategory(String description, String category);

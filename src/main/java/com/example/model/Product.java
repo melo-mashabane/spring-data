@@ -1,34 +1,31 @@
-package com.example.repository.repository.model;
+package com.example.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by mpumelelomashabane on 20/11/2017.
  */
 
 @Entity
+@Table(name = "product_table")
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String type;
     private String category;
     private String description;
     private Double price;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
